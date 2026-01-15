@@ -1,8 +1,6 @@
 from database import create_table, insert_student, fetch_all_students
 from student import Student
 from analysis import analyze_students
-
-
 def menu():
     print("\n--- Student Record Management System ---")
     print("1. Add Student")
