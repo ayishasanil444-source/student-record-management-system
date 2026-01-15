@@ -10,6 +10,7 @@ def menu():
     print("3. Analyze Performance")
     print("4. Exit")
 
+
 def add_student():
     try:
         student_id = int(input("Enter ID (unique number): "))
@@ -25,25 +26,29 @@ def add_student():
 
     except ValueError:
         print("❌ Invalid input! Please enter numbers for ID, age, and marks.")
-
     except Exception as e:
         if "UNIQUE constraint failed" in str(e):
-            print("❌ Student ID already exists. Please use a different ID.")
+            print("❌ Student ID already exists. Use a different ID.")
         else:
             print("❌ Error:", e)
+
+
 def view_students():
     students = fetch_all_students()
+
     print("\nID | Name | Age | Course | Marks")
-    print("-" * 35)
+    print("-" * 40)
+
     for s in students:
         print(f"{s[0]} | {s[1]} | {s[2]} | {s[3]} | {s[4]}")
+
 
 def main():
     create_table()
 
     while True:
         menu()
-        choice = input("Choose option: ")
+        choice = input("Enter your choice: ")
 
         if choice == "1":
             add_student()
@@ -51,11 +56,12 @@ def main():
             view_students()
         elif choice == "3":
             analyze_students()
-        elif choice=="4":
-            print("Exiting Program....")
+        elif choice == "4":
+            print("👋 Exiting Program...")
             break
         else:
             print("❌ Invalid choice")
+
 
 if __name__ == "__main__":
     main()
