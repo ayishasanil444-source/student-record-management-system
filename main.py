@@ -1,24 +1,36 @@
 from database import create_table, insert_student, fetch_all_students
 from student import Student
+from analysis import analyze_students
+
 
 def menu():
     print("\n--- Student Record Management System ---")
     print("1. Add Student")
     print("2. View Students")
-    print("3. Exit")
+    print("3. Analyze Performance")
+    print("4. Exit")
 
 def add_student():
-    student_id = int(input("Enter ID: "))
-    name = input("Enter name: ")
-    age = int(input("Enter age: "))
-    course = input("Enter course: ")
-    marks = float(input("Enter marks: "))
+    try:
+        student_id = int(input("Enter ID (unique number): "))
+        name = input("Enter name: ")
+        age = int(input("Enter age: "))
+        course = input("Enter course: ")
+        marks = float(input("Enter marks: "))
 
-    student = Student(student_id, name, age, course, marks)
-    insert_student(student)
+        student = Student(student_id, name, age, course, marks)
+        insert_student(student)
 
-    print("✅ Student added successfully")
+        print("✅ Student added successfully")
 
+    except ValueError:
+        print("❌ Invalid input! Please enter numbers for ID, age, and marks.")
+
+    except Exception as e:
+        if "UNIQUE constraint failed" in str(e):
+            print("❌ Student ID already exists. Please use a different ID.")
+        else:
+            print("❌ Error:", e)
 def view_students():
     students = fetch_all_students()
     print("\nID | Name | Age | Course | Marks")
@@ -38,7 +50,9 @@ def main():
         elif choice == "2":
             view_students()
         elif choice == "3":
-            print("Exiting program...")
+            analyze_students()
+        elif choice=="4":
+            print("Exiting Program....")
             break
         else:
             print("❌ Invalid choice")
