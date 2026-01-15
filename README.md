@@ -1,9 +1,9 @@
 # Student Record Management & Analysis System
 
 ## 📌 Overview
-The Student Record Management & Analysis System is a Python-based console application developed as a self-learning project. It is designed to manage student records efficiently and analyze academic performance using structured data storage and analysis techniques.
+The **Student Record Management & Analysis System** is a Python-based console application developed as a **self-learning project**. It is designed to manage student records efficiently and analyze academic performance using structured data storage and analysis techniques.
 
-This project demonstrates practical usage of Python, Object-Oriented Programming (OOP), SQL databases, and basic data analysis concepts.
+This project demonstrates practical usage of **Python**, **Object-Oriented Programming (OOP)**, **SQL databases**, and **basic data analysis concepts**.
 
 ---
 
@@ -31,3 +31,5 @@ This project demonstrates practical usage of Python, Object-Oriented Programming
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/ayishasanil444-source/student-record-management-system.git
+
+
